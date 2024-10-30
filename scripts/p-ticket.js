@@ -12,8 +12,18 @@ function scrolePHparibahan(){
         const Class='Economoy';
         const Price=500;
         // console.log(Span,Class,Price)
-        updatedblockedSeat()
+        const bockedSeat = getConvertedValue('count-seat');
+        if (bockedSeat+1>4){
+            alert('You will select 4 seat.Your limit is finished!!!');
+            return;
+        }
+        event.target.style.backgroundColor = "#1DD100";
+       
+        seatLefts();
         updateCountSeat();
+       
+        
+             
        
         const selectedSeatContainer=document.getElementById('selected-seat-container');
 
@@ -41,12 +51,18 @@ function scrolePHparibahan(){
         div.appendChild(p3);
 
         selectedSeatContainer.appendChild(div);
+        enableCouponApplyButton();
         calculateTotalPrice(Price);
+       
         calculateGrandTotal();
+        enableNextButton();
+       
         
 
-
-
+       
 
     })
+    
+   
  }
+ 

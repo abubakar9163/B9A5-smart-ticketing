@@ -41,6 +41,11 @@ function calculateGrandTotal(status){
       
     }
 }
+function seatLefts(){
+    const currentSeatLeft=getConvertedValue('seat-left');
+    const updatedSeatLeft=currentSeatLeft-1;
+    setInnerText('seat-left',updatedSeatLeft);
+}
 
 function updateCountSeat(){
   const blockedSeat= getConvertedValue('count-seat');
@@ -48,6 +53,35 @@ function updateCountSeat(){
   setInnerText('count-seat',updatedblockedSeat);
      
 }
+
+function enableNextButton() {
+    const bockedSeat = getConvertedValue('count-seat'); 
+    const phoneNumber = document.getElementById('phone-number').value.trim();
+
+    const nextBtn = document.getElementById('next-btn');
+
+    if (bockedSeat > 0 && phoneNumber !== "") {
+        nextBtn.disabled = false;
+    } else {
+        nextBtn.disabled = true;
+    }
+    
+}
+
+function enableCouponApplyButton(){
+    const bockedSeat = getConvertedValue('count-seat');
+    const couponInput = document.getElementById('input-filed');
+    const applyBtn = document.getElementById('apply-btn');
+
+    if (bockedSeat >= 4) {
+        couponInput.disabled = false;
+        applyBtn.disabled = false;
+    } else {
+        couponInput.disabled = true;
+        applyBtn.disabled = true;
+    }
+}
+
 
 function getConvertedValue(id){
     const price= document.getElementById(id).innerText;
