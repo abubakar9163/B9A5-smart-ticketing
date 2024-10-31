@@ -56,6 +56,7 @@ function scrolePHparibahan(){
        
         calculateGrandTotal();
         enableNextButton();
+        // dataClean();
        
         
 

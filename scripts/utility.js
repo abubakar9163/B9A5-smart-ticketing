@@ -62,6 +62,7 @@ function enableNextButton() {
 
     if (bockedSeat > 0 && phoneNumber !== "") {
         nextBtn.disabled = false;
+        dataClean();
     } else {
         nextBtn.disabled = true;
     }
@@ -81,7 +82,11 @@ function enableCouponApplyButton(){
         applyBtn.disabled = true;
     }
 }
+ 
+function dataClean(){
+ document.getElementById('phone-number').value='';
 
+}
 
 function getConvertedValue(id){
     const price= document.getElementById(id).innerText;
